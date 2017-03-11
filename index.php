@@ -28,16 +28,17 @@ Flight::register('redis','Redis',array(),function($redis)use($redis_cfg){
 });
 
 
-Flight::register('db', 'Medoo\Medoo', array($cfg_db));
-Flight::route('/user/stock/@cid:[0-9]+',function($cid){
-	(new StockApi())->stock_list(check_login(),$cid);
-});
+
 function check_login(){
 	if (isset($_SESSION['user.id'])){
 		return intval($_SESSION['user.id']);
 	}
 	Flight::json(['status'=>0,'message'=>'未登录','result'=>[]]);
 }
+Flight::register('db', 'Medoo\Medoo', array($cfg_db));
+Flight::route('/user/stock/@cid:[0-9]+',function($cid){
+	(new StockApi())->stock_list(check_login(),$cid);
+});
 Flight::route('GET /user/login', function () {
 	Flight::view()->display('user/login.tpl');
 });
