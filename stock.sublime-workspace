@@ -1,0 +1,1076 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"forp\tfor k,v in pairs()"
+			],
+			[
+				"local",
+				"ngx.localtime()"
+			],
+			[
+				"table",
+				"table_one"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"form",
+				"form-control"
+			],
+			[
+				"ACTION",
+				"ACTION_NAME〔constant〕"
+			],
+			[
+				"var",
+				"var_dump〔function〕"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"cache",
+				"cache_time"
+			],
+			[
+				"bs3-co",
+				"bs3-container\tbs3-container"
+			],
+			[
+				"co",
+				"$column〔variable〕"
+			],
+			[
+				"pass",
+				"pass_t"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"try",
+				"try\tTry/Except/Else"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/sin/htdocs/lua/stockapi.lua",
+			"settings":
+			{
+				"buffer_size": 3135,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/sin/htdocs/lua/stock_init.lua",
+			"settings":
+			{
+				"buffer_size": 2892,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/tpl/index.tpl",
+			"settings":
+			{
+				"buffer_size": 12131,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/module/StockApi.php",
+			"settings":
+			{
+				"buffer_size": 151,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/*\tvar gkk=new Array();\n\talert(gfile.length)\n\tfor(i=0;i<gfile.length;i++){\n\t\t\n\n         　　alert(gfile[i]['name']); \n\n        \n\t\tgkk[i]=gfile[i]['name'];\n\t}*/\n\t\tvar Language={ // 汉化\n\n\t\t\t\t\"sProcessing\": \"正在加载数据...\",\n\n\t\t\t\t\"sLengthMenu\": \"显示_MENU_条 \",\n\n\t\t\t\t\"sZeroRecords\": \"没有您要搜索的内容\",\n\n\t\t\t\t\"sInfo\": \"从_START_ 到 _END_ 条记录——总记录数为 _TOTAL_ 条\",\n\n\t\t\t\t\"sInfoEmpty\": \"记录数为0\",\n\n\t\t\t\t\"sInfoFiltered\": \"(全部记录数 _MAX_  条)\",\n\n\t\t\t\t\"sInfoPostFix\": \"\",\n\n\t\t\t\t\"sSearch\": \"搜索\",\n\n\t\t\t\t\"sUrl\": \"\",\n\n\t\t\t\t\"oPaginate\": {\n\n\t\t\t\t\t\"sFirst\": \"第一页\",\n\n\t\t\t\t\t\"sPrevious\": \" 上一页 \",\n\n\t\t\t\t\t\"sNext\": \" 下一页 \",\n\n\t\t\t\t\t\"sLast\": \" 最后一页 \"\n\n\t\t\t\t}\n\n\t\t\t};\n\n\tfunction setClass(mark, t_id) { //列数\n\t\tif (t_id == '1') {\n\t\t\tvar allTr = $('#table_one tbody').find('tr');\n\t\t\trow = 3\n\t\t} else if (t_id == '2') {\n\t\t\tvar allTr = $('#table_two tbody').find('tr');\n\t\t\trow = 2\n\t\t} else if (t_id == '3') {\n\t\t\tvar allTr = $('#table_three tbody').find('tr');\n\t\t\trow = 3\n\t\t}\n\t\telse if (t_id == '4') {\n\t\t\tvar allTr = $('#table_four tbody').find('tr');\n\t\t\trow = 3\n\t\t}else if (t_id == '5') {\n\t\t\tvar allTr = $('#table_five tbody').find('tr');\n\t\t\trow = 3;\n\t\t}else if (t_id == '21') {\n\t\t\tvar allTr = $('#table2_one tbody').find('tr');\n\t\t\trow = 3;\n\t\t}else if (t_id == '23') {\n\t\t\tvar allTr = $('#table2_three tbody').find('tr');\n\t\t\trow = 3;\n\t\t}else if (t_id == '24') {\n\t\t\tvar allTr = $('#table2_four tbody').find('tr');\n\t\t\trow = 3;\n\t\t}else if (t_id == '25') {\n\t\t\tvar allTr = $('#table2_five tbody').find('tr');\n\t\t\trow = 3;\n\t\t}\n\n\t\tfor (i = 0; i < allTr.length; i++) {\n\t\t\tvar allBr = $(allTr).eq(i).find('td');\n\n\t\t\tfor (j = row; j < allBr.length; j++) {\n\t\t\t\tvar number = $(allBr).eq(j).text();\n\t\t\t\tk = number.substr(0, 1)\n\t\t\t\tif (mark == 1) {\n\t\t\t\t\t//if(number > 0){\n\t\t\t\t\tif (k == '-') {\n\t\t\t\t\t\t$(allBr).eq(j).addClass(\"bg-success font-white\").css(\"text-align\", \"center\");\n\t\t\t\t\t\t\n\t\t\t\t\t} else {\n\t\t\t\t\t\t\n\t\t\t\t\t\t$(allBr).eq(j).addClass(\"bg-danger font-white\").css(\"text-align\", \"center\");\n\t\t\t\t\t}\n\t\t\t\t} else {\n\t\t\t\t\tif (j % 2 != 0) {\n\t\t\t\t\t\tif (number > 0) {\n\t\t\t\t\t\t\t$(allBr).eq(j).addClass(\"bg-danger font-white\").css(\"text-align\", \"center\");\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t$(allBr).eq(j).addClass(\"bg-success font-white\").css(\"text-align\", \"center\");\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t//$('.odd').css(\"background-color\",\"#eee\")\n\t\t$('tbody tr').mouseover(function () {\n                $(this).css(\"background-color\",\"#eee\")\n            });\n\t\t$('tbody tr').mouseleave(function () {\n                $(this).css(\"background-color\",\"\")\n            });\n\t\t$('tbody tr').click(function() {\n\t\t\t\t\t//event.stopPropagation();//阻止冒泡\n\t\t\t\t\t\t\t\t\tfnum=$(this).find('td').eq(2).find('samp')\n\t\t\t\t\t\t\t\t\tfnum.attr('id','x_id')\n\t\t\t\t\t\t\t\t\t//alert(fnum)\n\t\t\t\t\t\t\t\t\ttest(fnum)\n\t\t\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t\n\t\t})\n\t\t/*$('.odd').mouseover(function () {\n                $(this).css(\"background-color\",\"#eee\")\n            });\n\t\t$('.odd').mouseleave(function () {\n                $(this).css(\"background-color\",\"\")\n            });\n\t\t$('.even').mouseover(function () {\n                $(this).css(\"background-color\",\"#eee\")\n            });\n\t\t$('.even').mouseleave(function () {\n                $(this).css(\"background-color\",\"\")\n            });*/\n\t\t\t//cursor: pointer;\n\t\t$('.odd').find('a').css('cursor',\"pointer\")\n\t\t$('.even').find('a').css('cursor',\"pointer\")\n\t\t\t\n\t}\n\t\n\tfunction keyDown(e) {  \n　　   　　   var keycode = e.which;  \n　　 　　    var realkey = String.fromCharCode(e.which);  \n\t\t\tif(keycode==117){\n　　 　　    \t\t//alert(\"按键码: \" + keycode + \" 字符: \" + realkey);\n\t\t\t\t$('#menu').find('a').removeClass('selected')\n\t\t\t\t $('#menu li').eq(1).find('a').addClass('selected');\n\t\t\t\t \t$('.conts').hide()\n\t\t\t\t\t$('#services').show()\n\t\t\t}\n　　    }\n　　   document.onkeydown = keyDown;\nvar table1=\"\";\nvar table2=\"\";\nvar table3=\"\";\nvar table21=\"\";\nvar table23=\"\";\nvar table24=\"\";\nvar timer1;\nfunction updata(id){\n\tclearInterval(timer1);\n\tsec=60000;\n\tif(id==1){\n\t\tif(table1!=\"\"){\n\t\t\ttable1.ajax.reload(null, false);\n\t\t\treturn\t\n\t\t}\n\t table1= $('#table_one').DataTable({\n\t\t\t\"aaSorting\": [\n\t\t\t\t[8, \"desc\"]\n\t\t\t],\n\t\t\t\"oLanguage\": Language,\n\t\t\t \n\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\"columns\": [{\n\t\t\t\t\"data\": \"u\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"username\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"number\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"zlbfb\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"one\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a1\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a2\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a3\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a4\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a5\"\n\t\t\t}],\n\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\t\t\t\tda = jsk(aoData)\n\t\t\t\tsundata = jsk(aoData)\n\t\t\t\t$.ajax({\n\n\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\n\t\t\t\t\t\"url\": '6.php?type=ajax_get_data&table=5&from=2',\n\n\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\"data\": sundata\n\t\t\t\t\t\t/*{\n\t\t\t\t\t\t\t\t\t\t\t  aoData : JSON.stringify(aoData)\n\t\t\t\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t\t\t\t  }*/\n\t\t\t\t\t\t,\n\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\tk = $('#table_one thead tr').eq(1).find('th')\n\t\t\t\t\t\tfor (i = 1; i < k.length; i++) {\n\t\t\t\t\t\t\tk.eq(i).html(resp.title[i - 1])\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\tfnCallback(resp);\n\n\t\t\t\t\t\tsetClass(1, 1);\n\t\t\t\t\t\t$('.zxadd').click(function(){\n\t\t\t\t\t\t\t$(\".zxadd\").attr('disabled',true);return false;\n\t\t\t\t\t\t\t/*id=$(this).parent().next().html();\n\t\t\t\t\t\t\t\tlayer.open({\n\t\t\t\t\t\t\t\ttype: 2,\n\t\t\t\t\t\t\t\ttitle: 'layer mobile页',\n\t\t\t\t\t\t\t\tshadeClose: true,\n\t\t\t\t\t\t\t\tshade: 0.8,\n\t\t\t\t\t\t\t\tarea: ['380px', '90%'],\n\t\t\t\t\t\t\t\tcontent: 'zxg.php?id='+id //iframe的url\n\t\t\t\t\t\t\t}); */\n\t\t\t\t\t\t})\n\t\t\t\t\t/*\t$('.code_num').click(function() {\n\n\t\t\t\t\t\t\t\t\tfnum=$(this).html()\n\t\t\t\t\t\t\t\t\t$(this).attr('id','x_id')\n\t\t\t\t\t\t\t\t\ttest(fnum)\n\t\t\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t\n\t\t\t\t\t\t})*/\n\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开','加入自选'], //按钮\n\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn3: function() {\n\t\t\t\t\t\t\t\t\t\t//alert(\"123\");\n\t\t\t\t\t\t\t\t\t    layer.close(index);\n\t\t\t\t\t\t\t\t\t\t/*$.get(\"1.php\",\"\",function(data){\n\t\t\t\t\t\t\t\t\t\t\tvar models = eval(\"(\"+data+\")\");\n\t\t\t\t\t\t\t\t\t\t\tvar last=models.toJSONString();\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t});*/\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlayer.msg('自选股', {\n\t\t\t\t\t\t\t\t\t\t\t  icon: 6\n\t\t\t\t\t\t\t\t\t\t\t  ,btn:gkk,\n\t\t\t\t\t\t\t\t\t\t\t  btn1: function() {\n\t\t\t\t\t\t\t\t\t\t\t\t alert(\"上\");\n\t\t\t\t\t\t\t\t\t\t\t },\n\t\t\t\t\t\t\t\t\t\t\t btn2: function() {\n\t\t\t\t\t\t\t\t\t\t\t\t alert(\"深\");\n\t\t\t\t\t\t\t\t\t\t\t },\n\t\t\t\t\t\t\t\t\t\t\t btn3: function() {\n\t\t\t\t\t\t\t\t\t\t\t\t alert(\"创\");\n\t\t\t\t\t\t\t\t\t\t\t }\n\t\t\t\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\t\t//window.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t});\n\n\t\t\t\t\t\treturn false;\n\t\t\t\t\t\t})\n\t\t\t\t\t},\n\t\t\t\t\terror: function() {\n\t\t\t\t\t\talert('error');\n\t\t\t\t\t}\n\n\t\t\t\t});\n\t\t\t}\n\t\t})\n\t\ttimer1=setInterval(function() {\n\t\t\ttable1.ajax.reload(null, false);\n\t\t},sec);\n\t}\n//////////////////////////////////////////////////////////////////////////////////////////////////\n\n\t\t\n\n\t\t//////////////////////////////////////////////////////////////////////////////////////////////////////////////\nelse if(id==2){\n\t\tif(table2!=\"\"){\n\t\t\ttable2.ajax.reload(null, false);\n\t\t\treturn\t\n\t\t}\n\t table2 = $('#table_three').DataTable({\n\t\t\t\"aaSorting\": [\n\t\t\t\t[8, \"desc\"]\n\t\t\t],\n\t\t\t\"oLanguage\":Language,\n\t\t\t\n\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\"columns\": [{\n\t\t\t\t\t\"data\": \"u\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"username\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"number\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"zlbfb\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"one2\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b1\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b2\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b4\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"a5\"\n\t\t\t\t}\n\n\t\t\t],\n\n\t\t\t\n\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\n\n\t\t\t\tda = jsk(aoData)\n\t\t\t\t$.ajax({\n\n\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\n\t\t\t\t\t\"url\": '6.php?type=ajax_get_data&from=2&table=6',\n\n\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\"data\": da, \n\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\tk = $('#table_three thead tr').eq(1).find('th')\n\t\t\t\t\t\tfor (i = 1; i < k.length; i++) {\n\t\t\t\t\t\t\tk.eq(i).html(resp.title[i - 1])\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\tfnCallback(resp);\n\t\t\t\t\t\tsetClass(1, 3);\n\t\t\t\t\t/*\t$('.code_num').click(function() {\n\n\t\t\t\t\t\t\t\t\tfnum=$(this).html()\n\t\t\t\t\t\t\t\t\t$(this).attr('id','x_id')\n\t\t\t\t\t\t\t\t\ttest(fnum)\n\t\t\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t\n\t\t\t\t\t\t})*/\n\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开'], //按钮\n\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t});return false;\n\t\t\t\t\t\t});\n\n\n\t\t\t\t\t},\n\t\t\t\t\terror: function() {\n\t\t\t\t\t\talert('error');\n\t\t\t\t\t}\n\n\t\t\t\t});\n\t\t\t}\n\t\t})\n\t\t\t\ttimer1=setInterval(function() {\n\t\t\ttable2.ajax.reload(null, false);\n\t\t}, sec);\n}\n\t\t//////////////////////////////////////////////////////////////////////////////////////////////////////////////\n\t\t// 表2插入数据\n\t\telse if(id==3){\n\tif(table3!=\"\"){\n\t\t\ttable3.ajax.reload(null, false);\n\t\t\treturn\t\n\t\t}\n\t table3 = $('#table_four').DataTable({\n\t\t\t\"aaSorting\": [\n\t\t\t\t[8, \"desc\"]\n\t\t\t],\n\t\t\t\"oLanguage\": Language,\n\t\t\t\n\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\"columns\": [{\n\t\t\t\t\t\"data\": \"u\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"username\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"number\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"zlbfb3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"one3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c1\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c2\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c4\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"a5\"\n\t\t\t\t}\n\n\t\t\t],\n\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\t\t\t\tda = jsk(aoData)\n\t\t\t\t$.ajax({\n\n\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\n\t\t\t\t\t\"url\": '6.php?type=ajax_get_data&from=2&table=7',\n\n\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\"data\": da, //{aoData : JSON.stringify(aoData)}\n\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\t//\t$('#table_three thead').html(resp.thead)\n\t\t\t\t\t\tk = $('#table_three thead tr').eq(1).find('th')\n\t\t\t\t\t\tfor (i = 1; i < k.length; i++) {\n\t\t\t\t\t\t\tk.eq(i).html(resp.title[i - 1])\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\tfnCallback(resp);\n\t\t\t\t\t\tsetClass(1, 4);\n\t\t\t\t\t/*\t$('.code_num').click(function() {\n\n\t\t\t\t\t\t\t\t\tfnum=$(this).html()\n\t\t\t\t\t\t\t\t\t$(this).attr('id','x_id')\n\t\t\t\t\t\t\t\t\ttest(fnum)\n\t\t\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t\n\t\t\t\t\t\t})*/\n\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开'], //按钮\n\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t});return false;\n\t\t\t\t\t\t});\n\n\n\t\t\t\t\t},\n\t\t\t\t\terror: function() {\n\t\t\t\t\t\talert('error');\n\t\t\t\t\t}\n\n\t\t\t\t});\n\t\t\t}\n\t\t})\n\ttimer1=setInterval(function() {\n\t\t\ttable3.ajax.reload(null, false);\n\t\t}, sec);\n\t\t\n\t\t}\n////////////////////////////////////////////////////////////////////////////////\nelse if(id==4){\n\t\tif(table21!=\"\"){\n\t\t\ttable21.ajax.reload(null, false);\n\t\t\treturn\t\n\t\t}\n\n\ttable21 = $('#table2_one').DataTable({\n\t\t\t\"aaSorting\": [\n\t\t\t\t[8, \"desc\"]\n\t\t\t],\n\t\t\t\"oLanguage\": Language,\n\t\t\n\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\"columns\": [{\n\t\t\t\t\"data\": \"u\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"username\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"number\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"zlbfb\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"one\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a1\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a2\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a3\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a4\"\n\t\t\t}, {\n\t\t\t\t\"data\": \"a5\"\n\t\t\t}],\n\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\t\t\t\tda = jsk(aoData)\n\t\t\t\t$.ajax({\n\n\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\n\t\t\t\t\t\"url\": '6.php?type=ajax_get_data&types=custom&from=5&table=5',\n\n\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\"data\": da\n\t\t\t\t\t\t/*{\n\t\t\t\t\t\t\t\t\t\t\t  aoData : JSON.stringify(aoData)\n\t\t\t\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t\t\t\t  }*/\n\t\t\t\t\t\t,\n\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\tif(null == resp.data){\n\t\t\t\t\t\t\t//alert('没有数据')\t\n\t\t\t\t\t\t\t$('#table2_one_processing').text('没有数据')\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t$('#table2_one_info').html('从0 到 0 条记录——总记录数为 0 条 (全部记录数 10  条)')\n\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t}\n\t\t\t\t\t\tk = $('#table2_one thead tr').eq(1).find('th')\n\t\t\t\t\t\tfor (i = 1; i < k.length; i++) {\n\t\t\t\t\t\t\tk.eq(i).html(resp.title[i - 1])\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\tfnCallback(resp);\n\t\t\t\t\t\t\n\t\t\t\t\t\tsetClass(1, 21);\n\t\t\t\t\t\t$('.minus').click(function(){\n\t\t\t\t\t\t\tfile=$(this).attr('file');\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tcid=$(this).parent().next().find('samp').html();\n\t\t\t\t\t\t\t//alert(file)\n\t\t\t\t\t\t\t\t$.get('minus.php?id='+cid+'&file='+file,'type=data',function(data){\n\t\t\t\t\t\t\t\t\t//alert(data);\n\t\t\t\t\t\t\t\t\tvar d=eval(\"(\"+data+\")\");\n\t\t\t\t\t\t\t\t\talert(d);\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t//$.get('editt.php','file='+file,function(){})\n\t\t\t\t\t\t\t\t\t\t//table21.ajax.reload(null, false);\n\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t\t$(this).parent().parent().remove();\n\t\t\t\t\t\t\t\treturn false;\n\t\t\t\t\t\t})\n\t\t\t\t\t\t$('.zxadd').click(function(){\n\t\t\t\t\t\t\t$(\".zxadd\").attr('disabled',true);return false;\n\t\t\t\t\t\t})\n\n\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开','加入自选'], //按钮\n\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn3: function() {\n\t\t\t\t\t\t\t\t\t\t//alert(\"123\");\n\t\t\t\t\t\t\t\t\t    layer.close(index);\n\t\t\t\t\t\t\t\t\t\t/*$.get(\"1.php\",\"\",function(data){\n\t\t\t\t\t\t\t\t\t\t\tvar models = eval(\"(\"+data+\")\");\n\t\t\t\t\t\t\t\t\t\t\tvar last=models.toJSONString();\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t});*/\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlayer.msg('自选股', {\n\t\t\t\t\t\t\t\t\t\t\t  icon: 6\n\t\t\t\t\t\t\t\t\t\t\t  ,btn:gkk,\n\t\t\t\t\t\t\t\t\t\t\t  btn1: function() {\n\t\t\t\t\t\t\t\t\t\t\t\t alert(\"上\");\n\t\t\t\t\t\t\t\t\t\t\t },\n\t\t\t\t\t\t\t\t\t\t\t btn2: function() {\n\t\t\t\t\t\t\t\t\t\t\t\t alert(\"深\");\n\t\t\t\t\t\t\t\t\t\t\t },\n\t\t\t\t\t\t\t\t\t\t\t btn3: function() {\n\t\t\t\t\t\t\t\t\t\t\t\t alert(\"创\");\n\t\t\t\t\t\t\t\t\t\t\t }\n\t\t\t\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\t\t//window.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t});\nreturn false;\n\n\t\t\t\t\t\t})\n\t\t\t\t\t\t\n\t\t\t\t\t},\n\t\t\t\t\terror: function() {\n\t\t\t\t\t\talert('error');\n\t\t\t\t\t}\n\n\t\t\t\t});\n\t\t\t}\n\t\t})\n\t\ttimer1=setInterval(function() {\n\t\t\ttable21.ajax.reload(null, false);\n\t\t}, sec);\n}else if(id==5){\t\n\tif(table23!=\"\"){\n\t\t\ttable23.ajax.reload(null, false);\n\t\t\treturn\t\n\t\t}\n\n\ttable23 = $('#table2_three').DataTable({\n\t\t\t\"aaSorting\": [\n\t\t\t\t[8, \"desc\"]\n\t\t\t],\n\t\t\t\"oLanguage\": Language,\n\t\t\t\n\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\"columns\": [{\n\t\t\t\t\t\"data\": \"u\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"username\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"number\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"zlbfb\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"one2\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b1\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b2\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"b4\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"a5\"\n\t\t\t\t}\n\n\t\t\t],\n\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\t\t\t\tda = jsk(aoData)\n\t\t\t\t$.ajax({\n\n\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\n\t\t\t\t\t\"url\": '6.php?type=ajax_get_data&types=custom&table=6',\n\n\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\"data\": da, //{aoData : JSON.stringify(aoData)}\n\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\t\t\t\t\t\t\tif(null == resp.data){\n\t\t\t\t\t\t\t//alert('没有数据')\t\n\t\t\t\t\t\t\t$('#table2_three_processing').text('没有数据')\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t$('#table2_three_info').html('从0 到 0 条记录——总记录数为 0 条 (全部记录数 10  条)')\n\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t}\n\t\t\t\t\t\t//\t$('#table_three thead').html(resp.thead)\n\t\t\t\t\t\tk = $('#table2_three thead tr').eq(1).find('th')\n\t\t\t\t\t\tfor (i = 1; i < k.length; i++) {\n\t\t\t\t\t\t\tk.eq(i).html(resp.title[i - 1])\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\tfnCallback(resp);\n\t\t\t\t\t\tsetClass(1, 23);\n\t\t\t\t\t\t$('.minus').click(function(){\n\t\t\t\t\t\t\tfile=$(this).attr('file');\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tcid=$(this).parent().next().find('samp').html();\n\t\t\t\t\t\t\t//alert(file)\n\t\t\t\t\t\t\t\t$.get('minus.php?id='+cid+'&file='+file,'type=data',function(data){\n\t\t\t\t\t\t\t\t\t//alert(data);\n\t\t\t\t\t\t\t\t\tvar d=eval(\"(\"+data+\")\");\n\t\t\t\t\t\t\t\t\talert(d);\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t//$.get('editt.php','file='+file,function(){})\n\t\t\t\t\t\t\t\t\t\t//table21.ajax.reload(null, false);\n\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t\t$(this).parent().parent().remove();\n\t\t\t\t\t\t\t\treturn false;\n\t\t\t\t\t\t})\n\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开'], //按钮\n\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t});return false;\n\t\t\t\t\t\t});\n\n\n\t\t\t\t\t},\n\t\t\t\t\terror: function() {\n\t\t\t\t\t\talert('error');\n\t\t\t\t\t}\n\n\t\t\t\t});\n\t\t\t}\n\t\t})\n\t\ttimer1=setInterval(function() {\n\t\t\ttable23.ajax.reload(null, false);\n\t\t}, sec);\n}else if(id==6){\n\t\tif(table24!=\"\"){\n\t\t\ttable24.ajax.reload(null, false);\n\t\t\treturn\t\n\t\t}\n\n\ttable24 = $('#table2_four').DataTable({\n\t\t\t\"aaSorting\": [\n\t\t\t\t[8, \"desc\"]\n\t\t\t],\n\t\t\n\t\t\t\"oLanguage\": Language,\n\t\t\t\n\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\"columns\": [{\n\t\t\t\t\t\"data\": \"u\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"username\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"number\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"zlbfb3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"one3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c1\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c2\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c3\"\n\t\t\t\t}, {\n\t\t\t\t\t\"data\": \"c4\"\n\t\t\t\t},{\n\t\t\t\t\t\"data\": \"a5\"\n\t\t\t\t}\n\n\t\t\t],\n\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\t\t\t\tda = jsk(aoData)\n\t\t\t\t$.ajax({\n\n\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\n\t\t\t\t\t\"url\": '6.php?type=ajax_get_data&types=custom&table=7',\n\n\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\"data\": da, //{aoData : JSON.stringify(aoData)}\n\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\t\t\t\t\t\tif(null == resp.data){\n\t\t\t\t\t\t\t//alert('没有数据')\t\n\t\t\t\t\t\t\t$('#table2_four_processing').text('没有数据')\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t$('#table2_four_info').html('从0 到 0 条记录——总记录数为 0 条 (全部记录数 10  条)')\n\t\t\t\t\t\t\treturn\n\t\t\t\t\t\t}\n\t\t\t\t\t\t//\t$('#table_three thead').html(resp.thead)\n\t\t\t\t\t\tk = $('#table_three thead tr').eq(1).find('th')\n\t\t\t\t\t\tfor (i = 1; i < k.length; i++) {\n\t\t\t\t\t\t\tk.eq(i).html(resp.title[i - 1])\n\n\t\t\t\t\t\t}\n\t\t\t\t\t\tfnCallback(resp);\n\t\t\t\t\t\tsetClass(1, 24);\n\t\t\t\t\t\t$('.minus').click(function(){\n\t\t\t\t\t\t\tfile=$(this).attr('file');\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tcid=$(this).parent().next().find('samp').html();\n\t\t\t\t\t\t\t//alert(file)\n\t\t\t\t\t\t\t\t$.get('minus.php?id='+cid+'&file='+file,'type=data',function(data){\n\t\t\t\t\t\t\t\t\t//alert(data);\n\t\t\t\t\t\t\t\t\tvar d=eval(\"(\"+data+\")\");\n\t\t\t\t\t\t\t\t\talert(d);\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t//$.get('editt.php','file='+file,function(){})\n\t\t\t\t\t\t\t\t\t\t//table21.ajax.reload(null, false);\n\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t\t$(this).parent().parent().remove();\n\t\t\t\t\t\t\t\treturn false;\n\t\t\t\t\t\t})\n\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开'], //按钮\n\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t});return false;\n\t\t\t\t\t\t});\n\n\n\t\t\t\t\t},\n\t\t\t\t\terror: function() {\n\t\t\t\t\t\talert('error');\n\t\t\t\t\t}\n\n\t\t\t\t});\n\t\t\t}\n\t\t})\n\t\t\ttimer1=setInterval(function() {\n\t\t\ttable24.ajax.reload(null, false);\n\t\t}, sec);\n\t}\n\tclearInterval(timer1);\n}\n$(document).ready(function() {\n\t\tshownum=1;lodedata()//定义第一个表，加载数据\n\n\t\t\n\tcountDown();\n\tfunction lodemune(){\n \t $.get('editt.php','',function(resp){\n\t //$('#zxgmune').html(resp);\n\t arr=resp.split('xxff');\n\t $('#zxgp').html(arr[0]);\n\t $('#zxgm').html(arr[1]);\n\t \n\n\t $('.zxgt').click(function(){\n\t\t\t\t\t\t\tfile=$(this).attr('file');\n\t\t\t\t\t\t\t$.get('editt.php','file='+file,function(){\n\t\t\t\t\t\t\t\ttable2.ajax.reload(null, false);\n\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t})\n\t$('#dropdown-public li').click(function(){\n\t\t$('#table_one tbody').html('')\n\t\t$('#table_three tbody').html('')\n\t\t$('#table_four tbody').html('')\n\t\txfile=$(this).find('a').attr('file')\t\n\t\tname=$(this).find('a').text()\n\t\tid=$(this).parent().prev().attr('id')\n\t\t$('#public').html(name)\n\t\t$('#public').append('<span class=\"caret\"></span>')\n\t\t$.get('editt.php','file='+xfile+'&pub='+id,function(){\n\t\t\tif(showsa==0){\n\t\t\t\t\t\t\t\ttable1.ajax.reload(null, false);\n\t\t\t}else if(showsa==1){\n\t\t\t\t\t\t\t\ttable2.ajax.reload(null, false);\n\t\t\t}else if(showsa==2){\n\t\t\t\t\t\t\t\ttable3.ajax.reload(null, false);\n\t\t\t}\n\t\t\t\t\t\t\t})\n\t})\n\t//$('.btn-group li').click(function(){\n\t$('#dropdown-myself li').click(function(){\n\t\t$('#table2_one_processing').text('正在加载数据...')\n\t\t$('#table2_three_processing').text('正在加载数据...')\n\t\t$('#table2_four_processing').text('正在加载数据...')\n\t\t$('#table2_one tbody').html('')\n\t\t$('#table2_three tbody').html('')\n\t\t$('#table2_four tbody').html('')\n\t\txfile=$(this).find('a').attr('file')\t\n\t\tname=$(this).find('a').text()\n\t\t$('#til').text(name)\n\t\t$('#myself').html(name)\n\t\t$('#myself').append('<span class=\"caret\"></span>')\n\t\tid=$(this).parent().prev().attr('id')\n\t\t$.get('editt.php','file='+xfile+'&pub='+id,function(){\n\t\t\t\tif(showsb==0){\n\t\t\t\t\t\t\t\ttable21.ajax.reload(null, false);\n\t\t\t}else if(showsb==1){\n\t\t\t\t\t\t\t\ttable23.ajax.reload(null, false);\n\t\t\t}else if(showsb==2){\n\t\t\t\t\t\t\t\ttable24.ajax.reload(null, false);\n\t\t\t}\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t})\n\t})\n/*\t$('#myself').change(function(){\n\t\txfile=$('#myself option:selected').val()\n\t\t$.get('editt.php','file='+xfile,function(){\n\t\t\t\t\t\t\t\ttable21.ajax.reload(null, false);\n\t\t\t\t\t\t\t\ttable23.ajax.reload(null, false);\n\t\t\t\t\t\t\t\ttable24.ajax.reload(null, false);\n\t\t\t\t\t\t\t})\n\t})\n\t$('#public').change(function(){\n\t\txfile=$('#public option:selected').val()\n\t\t$.get('editt.php','file='+xfile+'&pub=1',function(){\n\t\t\t\t\t\t\t\ttable21.ajax.reload(null, false);\n\t\t\t\t\t\t\t\ttable23.ajax.reload(null, false);\n\t\t\t\t\t\t\t\ttable24.ajax.reload(null, false);\n\t\t\t\t\t\t\t})\n\t})*/\n\t $('#addfile').click(function(){\n\t\t\t\t\t\t\tif($(this).val()==\"添加自选股板块\"){\n\t\t\t\t\t\t\t\t$('#addfile').before('<input />')\n\t\t\t\t\t\t\t\t$(this).val(\"确定添加\")\n\t\t\t\t\t\t\t}else if($(this).val()==\"确定添加\"){\n\t\t\t\t\t\t\t\tif($(this).prev().val()!=\"\"){\n\t\t\t\t\t\t\t\t\tname=$(this).prev().val();\n\t\t\t\t\t\t\t\t  $.get('editt.php','name='+name+'&pub=myself',function(adde){\n\t\t\t\t\t\t\t\t\t  alert(adde);\n\t\t\t\t\t\t\t\t\t\tlodemune()\n\n\t\t\t\t\t\t\t\t  })\n\t\t\t\t\t\t\t\t}else{\n\t\t\t\t\t\t\t\t\talert(\"自选股板块名称不能为空\")\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t})\n})\n}\nlodemune()\n\t\t$.get('2.php',\"\",function(data){\n\t\t\t//alert(data);\n\t\t\t$('#til').text(data)\n\t\t},'json')\n\tvar sundata;\n\tvar sunresp;\n\tvar sunrespd;\n\nfunction settime(){\n\t/*setInterval(function() {\n\t\ttable.ajax.reload(null, false);\n\t\ttable3.ajax.reload(null, false);\n\t\ttable21.ajax.reload(null, false);\n\t\ttable23.ajax.reload(null, false);\n\t}, 60000);*/\n}\n///xt2/////////////////////////////////////////////////////////////////////////////////////////////////////////\nfunction sosuo(php,file) {\n\t\t\tif(file==\"\"){\n\t\t\t\tfile=\"1.txt\"\t\n\t\t\t}\n\t\t\t/*if( $(\"#bigTime\").val().length != 4 && $(\"#smallTime\").val().length != 4 ){\n\t\t\t\talert('搜索的内容不能为空！');\n\t\t\t\treturn;\n\t\t\t}*/\n\t\t\tvar myDate = new Date();\n\t\t\thh = myDate.getHours(); //获取当前小时数(0-23)\n\t\t\tif (hh < 10) {\n\t\t\t\thh = '0' + hh\n\t\t\t}\n\t\t\tmm = myDate.getMinutes(); //获取当前分钟数(0-59)\n\t\t\tif (mm < 10) {\n\t\t\t\tmm = '0' + mm\n\t\t\t}\n\t\t\tnet = hh + '' + mm\n\t\t\t\t//alert(hh+'-'+mm)\n\t\t\t\t/*arr=$(\"#bigTime\").val().split(':')\n\t\t\t\tvar bigt=Number(arr[0]+''+arr[1])\t\n\t\t\t\tarr=$(\"#smallTime\").val().split(':')\n\t\t\t\tvar smallt=Number(arr[0]+''+arr[1])*/\n\t\t\tvar bigt = $(\"#bigTime\").val()\n\t\t\tvar smallt = $(\"#smallTime\").val()\n\t\t\tif (net < smallt) {\n\t\t\t\tsmallt = net\n\t\t\t}\n\n\t\t\t//alert(bigt+'-'+smallt)\n\t\t\tstr2 = '<th>股票名</th><th>股票代码</th><th>' + bigt + '-' + smallt + '</th>';\n\t\t\t$('#divTableTwo').html('<table id=\"table_two\" class=\"table table-bordered\"><thead><tr>' + str2 + '</tr></thead></table>');\n\t\t\t//nom=$('#table_two thead tr').html()\n\n\t\t\t//$('#table_two thead tr').html(str2);\n\t\t\t$('#table_two').DataTable({\n\t\t\t\t\"aaSorting\": [\n\t\t\t\t\t[2, \"desc\"]\n\t\t\t\t],\n\t\t\t\t\n\t\t\t\t\"oLanguage\": Language,\n\n\t\t\t\t\"processing\": true, //载入数据的时候是否显示“载入中”\n\t\t\t\t\"serverSide\": true, //生成get数据\n\t\t\t\t\"columns\": [{\n\t\t\t\t\t\t\"data\": \"username\"\n\t\t\t\t\t}, {\n\t\t\t\t\t\t\"data\": \"number\"\n\t\t\t\t\t}, {\n\t\t\t\t\t\t\"data\": \"one\"\n\t\t\t\t\t},\n\t\t\t\t\t/*{ \"data\": \"a1\" }*/\n\t\t\t\t],\n\t\t\t\t\"fnServerData\": function(sSource, aoData, fnCallback) {\n\t\t\t\t\tda = jsk(aoData)\n\t\t\t\t\t$.ajax({\n\n\t\t\t\t\t\t\"type\": 'get',\n\n\t\t\t\t\t\t\"contentType\": \"application/x-www-form-urlencoded; charset=utf-8\",\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\"url\": php + '?type=ajax_get_data&bigt=' + bigt + '&smallt=' + smallt,\n\n\t\t\t\t\t\t\"dataType\": \"json\",\n\n\t\t\t\t\t\t\"data\": da\n\t\t\t\t\t\t\t/*{\n\t\t\t\t\t\t\t\t\t\t\t\t  aoData : JSON.stringify(aoData)\n\t\t\t\t\t\t\t\t\t\t\t\t  \n\t\t\t\t\t\t\t\t\t\t\t\t  }*/\n\t\t\t\t\t\t\t,\n\t\t\t\t\t\t\"success\": function(resp) {\n\t\t\t\t\t\t\tfnCallback(resp);\n\n\t\t\t\t\t\t\tvar cssTr = $(\"#table_two tbody tr:eq(0)\").length;\n\t\t\t\t\t\t\tvar alignTr = $(\"#table_two tbody tr:eq(0) td:eq(3)\").css(\"text-align\");\n\n\t\t\t\t\t\t\tif (cssTr != 0 && alignTr != \"center\") {\n\t\t\t\t\t\t\t\t//alert(333);\n\t\t\t\t\t\t\t\tsetClass(1, 2);\n\t\t\t\t\t\t\t\t$('.code_name').click(function() {\n\t\t\t\t\t\t\t\t\tnun = $(this).parent().next().html()\n\n\t\t\t\t\t\t\t\t\tlayer.confirm('请选择一种方式进入', {\n\t\t\t\t\t\t\t\t\t\tshadeClose: false,\n\t\t\t\t\t\t\t\t\t\tbtn: ['网页版打开', '搜狐flash行情页面打开'], //按钮\n\t\t\t\t\t\t\t\t\t\tbtn1: function() {\n\t\t\t\t\t\t\t\t\t\t\twindow.open(\"http://stock.jrj.com.cn/share,\" + nun + \".shtml\");\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\tbtn2: function() {\n\t\t\t\t\t\t\t\t\t\t\twindow.open(\"http://q.stock.sohu.com/qp/index.html?cn_\"+nun); \n\t\t\t\t\t\t\t\t\t\t\t//window.open(\" http://q.stock.sohu.com/qp/index.html?cn_300048\");\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t});return false;\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t},\n\t\t\t\t\t\terror: function() {\n\t\t\t\t\t\t\talert('error');\n\t\t\t\t\t\t}\n\n\t\t\t\t\t});\n\t\t\t\t}\n\t\t\t})\n\n\t\t}\n////////////////////////////////////////////////////////////////////////////////////////////////////////\n\t\t$(\"#searchTableTwo\").on(\"click\", function() {\n\t\t\tsosuo('5.php')\n\t\t})\n\t\t$(\"#deleteTableTwo\").on(\"click\", function() {\n\t\t\tsosuo('5.1.php')\n\t\t})\n\n\t\t$('.sh').click(function(e) {\n\t\t\tif ($(this).attr('id') == 'bigs') {\n\t\t\t\t$('#smallTime').focus()\n\t\t\t\talert(document.activeElement.id)\n\n\t\t\t}\n\t\t})\n\t\t$('#chart3').mousemove(function(e) {\n\t\t\tvar xx = e.originalEvent.x || e.originalEvent.layerX || 0;\n\t\t\tvar yy = e.originalEvent.y || e.originalEvent.layerY || 0;\n\t\t\t//alert(xx + '---' + yy); \n\t\t\t//alert(document.activeElement.id)\n\t\t\t$('#bigs').css('margin-left', yy + 110 + 'px')\n\t\t\t\t//$('#bigs').css('margin-left','0px')\n\t\t});\n\t});\n\n\tfunction showt(id, title, direction) {\n\t\tvar test1 = ljtips(id);\n\t\tdocument.getElementById(id).onmouseover = function() {\n\t\t\ttest1.show({\n\t\t\t\tcontent: title,\n\t\t\t\tp: direction\n\t\t\t})\n\t\t};\n\t\tdocument.getElementById(id).onmouseout = function() {\n\t\t\ttest1.hide();\n\t\t};\n\t\tdocument.getElementById(id).onfocus = function() {\n\t\t\ttest1.show({\n\t\t\t\tcontent: title,\n\t\t\t\tp: direction\n\t\t\t})\n\t\t};\n\t\tdocument.getElementById(id).onblur = function() {\n\t\t\ttest1.hide();\n\t\t};\n\t}\n\t$(function() {\n\t\t$('#chart3').dblclick(function() {\n\t\t\t$('#bigTime').focus();\n\t\t\tqx_k = 1\n\n\t\t})\n\t\t$('#bigTime').blur(function() {\n\t\t\t$('#smallTime').focus()\n\t\t\tqx_k = 2\n\n\t\t})\n\t\t$('#smallTime').blur(function() {\n\t\t\t$('#searchTableTwo').focus()\n\n\t\t})\n\t\tshowt('tab1', '12456', 'top')\n\t\tshowt('tab2', '12456', 'top')\n\t\tshowt('tab3', '12456', 'top')\n\t\tshowt('tab4', '12456', 'top')\n\t\tshowt('chart3', '双击选择时间段', 'right')\n\t\tshowt('bigTime', '滑动选择开始时间，点击确定', 'top')\n\t\tshowt('smallTime', '滑动选择结束时间，点击确定', 'top')\n\n\n\t})\n\n\tfunction jsk(aoData) {\n\t\tvar u = {}\n\t\tu = aoData[0]\n\n\t\t//alert(u.dtaw)\n\t\tvar arr = {},\n\t\t\tb = {},\n\t\t\tc = {}\n\t\tfor (i = 0; i < aoData.length; i++) {\n\t\t\t//k=JSON.stringify(aoData[i].name)\n\t\t\tk = aoData[i].name\n\t\t\tif (typeof arr[k] == 'object') {\n\t\t\t\tb = JSON.stringify(arr[k])\n\t\t\t\tc = JSON.stringify(b.data)\n\t\t\t\talert(b)\n\t\t\t} else {\n\t\t\t\tarr[k] = aoData[i].value\n\t\t\t}\n\n\n\t\t}\n\t\treturn arr\n\t}\n\t//////////////////////////////////////////////////////////////////////\n\nfunction test(id){\n\t//kk=$.xajax(\"GET\",\"k.php\",{num:id, content:2})\n\t//页面层\n\tlayer.open({\n\t  type: 2,\n\t  skin: 'layui-layer-rim', //加上边框\n\t  area: ['1100px', '600px'], //宽高\n\t  fix: false, //不固定\n  \t  //maxmin: true,//放大缩小\n\t  content: 'test.html'\n\t});\n\t\n}\n\t// ! function() {\n\n\t// \t//加载扩展模块\n\t// \t// layer.config({\n\t// \t// \textend: 'extend/layer.ext.js'\n\t// \t// });\n\t// }();",
+			"file": "/Users/sin/Downloads/WWW/siyan/js/xds.js",
+			"file_size": 31058,
+			"file_write_time": 131230426060000000,
+			"settings":
+			{
+				"buffer_size": 28561,
+				"line_ending": "Windows",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/Users/sin/Downloads/WWW/siyan/js/0902.js",
+			"settings":
+			{
+				"buffer_size": 2310,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"task",
+				"Tasks: New document"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"thme",
+				"Themr: List themes"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"set py",
+				"Preferences: Settings – Syntax Specific"
+			]
+		],
+		"width": 503.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"view.settings().get('font_face')",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/sin/htdocs/stock",
+		"/Users/sin/htdocs/stock/app",
+		"/Users/sin/htdocs/stock/app/module",
+		"/Users/sin/htdocs/stock/app/tpl",
+		"/Users/sin/htdocs/stock/logs",
+		"/Users/sin/htdocs/lua"
+	],
+	"file_history":
+	[
+		"/Users/sin/htdocs/stock/ftpsync.settings",
+		"/Users/sin/htdocs/lua/ftpsync.settings",
+		"/Users/sin/htdocs/stock/app/tpl/index.tpl",
+		"/Users/sin/Downloads/WWW/siyan/js/gshq.js",
+		"/Users/sin/htdocs/stock/config.php",
+		"/Users/sin/htdocs/stock/source/library/db/model.php",
+		"/Users/sin/htdocs/stock/source/library/db/medoo.php",
+		"/Users/sin/htdocs/stock/source/autoload.php",
+		"/Users/sin/htdocs/stock/app/conf/db_cfg.php",
+		"/Users/sin/htdocs/stock/app/module/User.php",
+		"/Users/sin/htdocs/mj/wap/Tpl/Index/design.html",
+		"/Users/sin/htdocs/stock/index.php",
+		"/Users/sin/htdocs/stock/app/tpl/login.tpl",
+		"/Users/sin/htdocs/mj/Admin/Lib/Action/CommonAction.class.php",
+		"/Users/sin/htdocs/stock/app/tpl/user/index.tpl",
+		"/Users/sin/htdocs/stock/source/flight/core/Dispatcher.php",
+		"/Users/sin/php/monolog/README.md",
+		"/Users/sin/htdocs/stock/app/libs/verify.php",
+		"/Volumes/G/fyjs/app/src/libs/verify.php",
+		"/Users/sin/htdocs/stock/app/module/User.class.php",
+		"/Users/sin/htdocs/stock/source/core/Loader.php",
+		"/Users/sin/htdocs/stock/source/Flight.php",
+		"/Users/sin/python/python.py",
+		"/Users/sin/Library/Application Support/Sublime Text 3/Packages/Themr/ThemrFavorites.sublime-settings",
+		"/Users/sin/Library/Application Support/Sublime Text 3/Packages/User/python3.sublime-build",
+		"/Users/sin/lua/stock_save.lua"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+			"/Users/sin/htdocs/stock/source"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ajax_get_",
+			"ajax_get_table",
+			"\t\n",
+			"language",
+			"count",
+			"count-",
+			"count--",
+			"event",
+			"lass=\"icon icon-home\"",
+			"grorp",
+			"method",
+			")''",
+			"true",
+			"your_password",
+			"];\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/sin/htdocs/lua/stockapi.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3135,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2890,
+								2896
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										3021,
+										3024
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/dot.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1634,
+										1642
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"is_init_dirty_state": true,
+							"open_with_edit": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1991.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/sin/htdocs/lua/stock_init.lua",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								994,
+								994
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 450.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/tpl/index.tpl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8661,
+								8661
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										8657,
+										8660
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 909.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/module/StockApi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 151,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								147,
+								147
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"is_init_dirty_state": false,
+							"open_with_edit": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/sin/Downloads/WWW/siyan/js/xds.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28561,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12085,
+								12090
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										12112,
+										12113
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										12059,
+										12060
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Solarized (Light).tmTheme",
+							"in_converting": true,
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8-SIG",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10081.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/sin/Downloads/WWW/siyan/js/0902.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2052,
+								2052
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2051,
+										2052
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										2027,
+										2028
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Solarized (Light).tmTheme",
+							"is_init_dirty_state": false,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 70.0
+	},
+	"input":
+	{
+		"height": 67.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/python3.sublime-build",
+	"project": "stock.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/htdocs/mj/mj.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
