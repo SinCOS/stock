@@ -154,6 +154,12 @@
                 </thead>
             </table>
         </div>
+        <div class="layer" id='favor' style="display:none;">
+            <ul class="list-group" style="padding:10px;">
+                <li class="list-group-item">默认</li>
+                <li class="list-group-item">大小</li>
+            </ul>
+        </div>
         <div class="login-from" id='login_frm' style="display: none;">
             <form class="layui-form layui-form-pane" action="">
                 <div class="layui-form-item">
@@ -212,7 +218,7 @@
         <script src="/public/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
         <script type="text/javascript" src="/public/js/common.js?v2.7"></script>
-        <script type="text/javascript" src="/public/js/table.js"></script>
+        <script type="text/javascript" src="/public/js/table.js?v1"></script>
         <script type="text/javascript">
         function jsk(aoData) {
             var u = {}
@@ -318,7 +324,7 @@
                         });
                 },
                 "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-                  
+
                     var page = tbl_four.page();
                     var page_len = tbl_four.page.len();
                     $('td:eq(0)', nRow).text(page * page_len + iDisplayIndex + 1);
