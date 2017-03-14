@@ -26,13 +26,18 @@ class User extends base {
 				if ($status == 1) {
 					$_SESSION['user.id'] = $res['id'];
 					$_SESSION['user.username'] = $res['username'];
-					setcookie('token', md5($res['id']), time() + 30 * 60);
+					$token = md5(uniqid() . $res['id'] );
+
+					setcookie('token', $token);
+					$cache = Flight::redis();
+					$cache->set("token:{$token}:uid:{$res['id']}",json_encode($res));
+					$cache->incr("uid:{$res['id']}",1);
 					$db->update("user", [
 						'login_time' => time(),
 						'login_ip' => $req->ip,
 						'total_login[+]' => 1,
 					], ['id' => $res['id']]);
-					$this->success('登录成功');
+					$this->success('登录成功',200,['token' => $token,'userID' => $res['id']]);
 				}
 			} else {
 				$this->error('登录失败');
@@ -132,6 +137,19 @@ class User extends base {
 			#code...#
 			break;
 		}
+	}
+	function category_list($uid){
+		$db = Flight::db();
+		$result = $db->get('stockGroup',['id','name'],[
+				'AND' => [
+					'status' => 1,
+					'uid' => $uid
+				]
+			]);
+		if($result !== false){
+			$this->success('ok',200,$result);
+		}
+		$this->success('ok',200,[]);
 	}
 
 }

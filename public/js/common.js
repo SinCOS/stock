@@ -12,7 +12,7 @@ $(function(){
 		});
 	}
 	getUserId = function(){
-		if (localStorage.userID) {return localStorage.userID;}
+		if (localStorage.userID !==null ) {return localStorage['userID'];}
 		return false;
 	}
 	register = function (){
@@ -26,7 +26,8 @@ $(function(){
 	}
 	shutdown = function(){
 		if(localStorage.userID){
-			localStorage.userID = null;
+			localStorage.removeItem('userID');
+			localStorage.removeItem('token');
 		}
 		window.location = "/user/logoff";
 	}
@@ -43,8 +44,9 @@ $(function(){
           		return false;
           	}
         	$.post('/user/login', data.field, function(data, textStatus, xhr) {
-        		if (data.status == 1) {
-                    localStorage['userID']=1;
+        		if (data.status == 200) {
+                    localStorage['userID']=data.result.userID;
+                    localStorage['token']=data.result.token;
                     window.location = "/";
                     return;
                 }else{
@@ -77,8 +79,12 @@ $(function(){
 			}
 			this.$http.get('/user/info/'+userID).then(resp=>{
 				self.userInfo = resp.body.result;
+				if(self.userInfo.username && self.userInfo.username !== ''){
+					self.loginIn = true;
+				}else{
+					localStorage.removeItem('userID');
+				}
 				
-				self.loginIn = true;
 			}, resp=>{
 				self.loginIn = false;
 			});

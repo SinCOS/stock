@@ -75,7 +75,7 @@
                     <li class="layui-nav-item"><a href="">社区</a></li>
                 </ul>
                 <ul class="layui-nav layui-nav-right">
-                    <template v-if="loginIn">
+                    <template v-if="loginIn ==  true ">
                         <li class="layui-nav-item">
                             <a href="javascript:;" v-text="userInfo['username']"></a>
                             <dl class="layui-nav-child">
@@ -217,7 +217,7 @@
         <script src="https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
         <script src="/public/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-        <script type="text/javascript" src="/public/js/common.js?v2.7"></script>
+        <script type="text/javascript" src="/public/js/common.js?v2.10"></script>
         <script type="text/javascript" src="/public/js/table.js?v1"></script>
         <script type="text/javascript">
         function jsk(aoData) {

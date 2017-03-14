@@ -24,7 +24,7 @@ Flight::register('view', 'Smarty', array(), function ($smarty) use ($_CFG_SMARTY
 	$smarty->right_delimiter = "}}";
 });
 Flight::register('redis','Redis',array(),function($redis)use($redis_cfg){
-	$redis->connect($redis_cfg['host'],$redis_cfg['port'],$redis_cfg['timeout']);
+	$redis->pconnect($redis_cfg['host'],$redis_cfg['port'],$redis_cfg['timeout']);
 });
 
 
@@ -60,6 +60,9 @@ Flight::route('/user/favor/@id:[0-9]+',function ($id){
 Flight::route('/user/logoff',function(){
 	session_destroy();
 	Flight::redirect('/');
+});
+Flight::route('GET /user/category',function(){
+	(new User)->category_list(check_login());
 });
 Flight::route('/user/register', function () {
 	$request = Flight::request();

@@ -104,7 +104,6 @@ $(function() {
 
         },
         "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-            console.log(this);
             var page = node_info.current.page();
             var page_len = node_info.current.page.len();
             $('td:eq(0)', nRow).text(page * page_len + iDisplayIndex + 1);
@@ -113,9 +112,27 @@ $(function() {
                 var cpy_name = $(this).attr("cpy_name");
                 return layer.open({
                         type: 1,
+                        title: '自选股收藏夹',
                         content: $("#favor").html(),
                         area: ['345px','435px'],
-                        btn:['新建','确认','返回']
+                        btn: ['新建','确认','返回'],
+                        yes: function(index,layero){
+                            layer.prompt({
+                                title: '新建收藏夹'
+                            },function(value,iindex,elem){
+                                if(!value || value == ''  ){
+
+                                    return false;
+                                }
+                                layer.msg(value);
+                                layer.close(iindex);
+                            });
+
+                        },
+                        btn0: function(){
+
+                            return false;
+                        }
                 });
                 layer.msg("是否把 ' " + cpy_name + " ' 添加到自选股", {
                     btn: ['是', '否'],

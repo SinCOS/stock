@@ -24,11 +24,7 @@
 				'message' => microtime(TRUE)  -  $_SERVER['REQUEST_TIME_FLOAT'] 
 				]);
 		}
-		function stock_category(){
-			$db =  Flight::db();
-			
 
-		}
 	}
 	
  ?>
