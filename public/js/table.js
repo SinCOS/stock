@@ -124,6 +124,7 @@ $(function() {
                             },function(value,iindex,elem){
                                 if(!value || value == ''  ){
 
+
                                     return false;
                                 }
                                 Vue.http.post('/user/category', {name: value}).then(resp=>{
@@ -140,7 +141,7 @@ $(function() {
                                     }
                                     
                                 },resp=>{
-
+                                    layer.msg('网络连接失败!!!');
                                 });
                                
                                 layer.close(iindex);

@@ -140,13 +140,14 @@ class User extends base {
 	}
 	private function _category_list_cache($uid){
 			$db = Flight::db();
+			$cache = Flight::redis();
 			$result = $db->select('stockGroup',['id','name'],[
 				'AND' => [
 					'status' => 1,
 					'uid' => $uid
 				]
 			]);
-			$cache->setEx("uid:{$uid}:skgrp",7*24*3600,json_encode($result));
+			$cache->setEx("uid:{$uid}:skgrp", 7*24*3600, json_encode($result));
 			return $result;
 
 	}
@@ -162,9 +163,9 @@ class User extends base {
 		}
 		
 		if($result !== false){
-			$this->success('ok',200,$result);
+			$this->success('ok', 200, $result);
 		}
-		$this->success('ok',200,[]);
+		$this->success('ok', 200, []);
 	}
 	function category_del($id,$uid){
 		$db = Flight::db();
@@ -194,7 +195,7 @@ class User extends base {
 		if($res){
 			$this->success('',200);
 		}else{
-			$this->success('fail',401);
+			$this->success('fail', 401);
 		}
 	}
 
