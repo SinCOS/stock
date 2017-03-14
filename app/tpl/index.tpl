@@ -50,8 +50,8 @@
 </style>
 
 <body>
-    <div class="layui-layout layui-layout-admin">
-        <div class="layui-header header" id='app'>
+    <div class="layui-layout layui-layout-admin" id='app'>
+        <div class="layui-header header" >
             <div class="layui-main" style="margin: 0px;">
                 <ul class="layui-nav ">
                     <li class="layui-nav-item"><a href="javascript:void;">主力追踪</a></li>
@@ -98,9 +98,10 @@
                         <a href="javascript:;">自选股</a>
                         <dl class="layui-nav-child">
                             <dd><a href="javascript:;">默认</a></dd>
-                            <dd><a href="javascript:;">选项二</a></dd>
-                            <dd><a href="javascript:;">选项三</a></dd>
-                            <dd><a href="">跳转项</a></dd>
+                        <template v-for="item in userFavor">
+                            <dd><a href="javascript:;" v-text="item.name" ></a></dd>
+                        </template>
+                            <dd><a href="">全部</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -157,7 +158,10 @@
         <div class="layer" id='favor' style="display:none;">
             <ul class="list-group" style="padding:10px;">
                 <li class="list-group-item">默认</li>
-                <li class="list-group-item">大小</li>
+                <template v-for="item in userFavor" >
+
+                    <li class="list-group-item" v-text='item.name' ></li>
+                </template>
             </ul>
         </div>
         <div class="login-from" id='login_frm' style="display: none;">
@@ -213,6 +217,8 @@
                 </div>
             </form>
         </div>
+        </div>
+        </body>
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
         <script src="/public/layui/layui.js" charset="utf-8"></script>
@@ -353,6 +359,6 @@
             color: #fff;
         }
         </style>
-</body>
+
 
 </html>

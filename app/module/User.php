@@ -81,7 +81,7 @@ class User extends base {
 			}
 			$res = $db->insert('user', ['username' => $username,
 				'password' => $password,
-				'reg_time' => time(),
+				'reg_time' => date("Y-m-d H:i:m"),
 				'status' => 1,
 			]);
 			if ($res) {
@@ -129,27 +129,73 @@ class User extends base {
 					'cpy_id' => $id,
 				]);
 				if ($result) {
-					$this->success("已删除");
+					$this->success("已删除",200);
 				}
-				$this->error("删除失败");
+				$this->error("删除失败",401);
 			}
 		default:
 			#code...#
 			break;
 		}
 	}
-	function category_list($uid){
-		$db = Flight::db();
-		$result = $db->get('stockGroup',['id','name'],[
+	private function _category_list_cache($uid){
+			$db = Flight::db();
+			$result = $db->select('stockGroup',['id','name'],[
 				'AND' => [
 					'status' => 1,
 					'uid' => $uid
 				]
 			]);
+			$cache->setEx("uid:{$uid}:skgrp",7*24*3600,json_encode($result));
+			return $result;
+
+	}
+	function category_list($uid){
+		
+		$cache = Flight::redis();
+		if(!$cache->exists("uid:{$uid}:skgrp")){
+			$result = $this->_category_list_cache($uid);
+		}else{
+			$res = $cache->get("uid:{$uid}:skgrp");
+
+			$result = json_decode($res);
+		}
+		
 		if($result !== false){
 			$this->success('ok',200,$result);
 		}
 		$this->success('ok',200,[]);
+	}
+	function category_del($id,$uid){
+		$db = Flight::db();
+		$res = $db->update('stockGroup',[
+			'status' => 0
+			],[
+				'uid' => $uid
+			]);
+		if($res){
+			$this->_category_list_cache($uid);
+			$this->success('',200);
+		}
+		$this->error('失败',401);
+	}
+	function category_add(){
+		$uid = check_login();
+		$name = Flight::request()->data->name;
+		$db = Flight::db();
+		$res = $db->insert('stockGroup',[
+			'name' => $name,
+			'uid' => $uid,
+			'public' => 1,
+			'create_at' => date("Y-m-d H:i:m")
+			]);
+		$cache = Flight::redis();
+		$result = $this->_category_list_cache($uid);
+		if($res){
+			$this->success('',200);
+		}else{
+			$this->success('fail',401);
+		}
 	}
 
 }

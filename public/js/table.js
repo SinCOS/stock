@@ -108,12 +108,14 @@ $(function() {
             var page_len = node_info.current.page.len();
             $('td:eq(0)', nRow).text(page * page_len + iDisplayIndex + 1);
             $('td:eq(11)', nRow).addClass('cpy_id').attr('data', aData['cpy_id']).on('click', function() {
+                var self = this;
                 var cpy_id = parseInt($(this).attr('data'));
                 var cpy_name = $(this).attr("cpy_name");
-                return layer.open({
+        
+                var layer_index =  layer.open({
                         type: 1,
                         title: '自选股收藏夹',
-                        content: $("#favor").html(),
+                        content: $("#favor"),
                         area: ['345px','435px'],
                         btn: ['新建','确认','返回'],
                         yes: function(index,layero){
@@ -124,7 +126,23 @@ $(function() {
 
                                     return false;
                                 }
-                                layer.msg(value);
+                                Vue.http.post('/user/category', {name: value}).then(resp=>{
+                                    if(resp.body.status == 400){
+                                        layer.msg(resp.body.message);
+                                        setTimeout(function(){
+                                            login();
+                                        },3000);
+                                        
+                                    }else if (resp.body.status == 200) {
+                                         app.reflushFavor();
+                                      
+                                         
+                                    }
+                                    
+                                },resp=>{
+
+                                });
+                               
                                 layer.close(iindex);
                             });
 
@@ -134,6 +152,7 @@ $(function() {
                             return false;
                         }
                 });
+                return false;
                 layer.msg("是否把 ' " + cpy_name + " ' 添加到自选股", {
                     btn: ['是', '否'],
                     yes: function(layero) {

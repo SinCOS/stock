@@ -33,7 +33,7 @@ function check_login(){
 	if (isset($_SESSION['user.id'])){
 		return intval($_SESSION['user.id']);
 	}
-	Flight::json(['status'=>0,'message'=>'未登录','result'=>[]]);
+	Flight::json(['status'=>400,'message'=>'未登录','result'=>[]]);
 }
 Flight::register('db', 'Medoo\Medoo', array($cfg_db));
 Flight::route('/user/stock/@cid:[0-9]+',function($cid){
@@ -61,9 +61,7 @@ Flight::route('/user/logoff',function(){
 	session_destroy();
 	Flight::redirect('/');
 });
-Flight::route('GET /user/category',function(){
-	(new User)->category_list(check_login());
-});
+
 Flight::route('/user/register', function () {
 	$request = Flight::request();
 	if ($request->method == 'GET') {
@@ -72,6 +70,12 @@ Flight::route('/user/register', function () {
 		$user = new User();
 		$user->register();
 	}
+});
+Flight::route('POST /user/category',function(){
+	(new User)->category_add();
+});
+Flight::route('GET /user/category',function(){
+	(new User)->category_list(check_login());
 });
 Flight::route('/', function () {
 	Flight::view()->display('index.tpl');
