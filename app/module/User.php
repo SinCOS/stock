@@ -91,32 +91,55 @@ class User extends base {
 		}
 		Flight::halt(200, '非法访问');
 	}
+	private function _favor_list_cache($sg_id = 0,$uid){
+		$cache = Flight::redis();
+		$db = Flight::db();
+		$result = $db->select('user_stock',['cpy_id','uid'],[
+				'AND' => [
+					'uid' => $uid,
+					'sg_id' => $sg_id,
+					'status' => 1
+				]
+			]);
 
+
+		if($result !== false){
+			$res = array_column($result,'uid','cpy_id');
+			$cache->setEx("uid:{$uid}:us:{$sg_id}",7*24*3600,json_encode($res));
+		}else{
+			$this->error('xxxx');
+		}
+	}
 	function favor($request, $id) {
 		$uid = check_login();
+		$sg_id = Flight::request()->data->sg_id ?? 0;
 		switch ($request->method) {
 		case 'POST':
 			{
 				$db = Flight::db();
-				$exists = $db->get('user_stock', 'id', [
+				$exists = $db->has('user_stock', [
 					'AND' => [
 						'uid' => $uid,
 						'cpy_id' => $id,
+						'sg_id' => $sg_id,
 						'status' => 1],
 				]);
-				if ($exists) {$this->error('已添加');}
+				if ($exists) {
+					$this->error('已添加');
+				}
 				$result = $db->insert('user_stock', [
-
 					'uid' => $uid,
 					'cpy_id' => $id,
 					'status' => 1,
-					'createtime' => time(),
-
+					'sg_id' => $sg_id,
+					'created_at' => date("Y-m-d H:i:s")
 				]);
-				if ($result) {
+				if ($result !== false) {
+					$this->_favor_list_cache($sg_id, $uid);
 					$this->success('保存成功');
 				}
-				$this->error("保存失败");
+
+				$this->error('xx',-1,$db->last());
 			}
 			break;
 		case 'DELETE':
@@ -128,8 +151,9 @@ class User extends base {
 					'uid' => $uid,
 					'cpy_id' => $id,
 				]);
+
 				if ($result) {
-					$this->success("已删除",200);
+					$this->success("已删除",200,$result);
 				}
 				$this->error("删除失败",401);
 			}
@@ -188,7 +212,7 @@ class User extends base {
 			'name' => $name,
 			'uid' => $uid,
 			'public' => 1,
-			'create_at' => date("Y-m-d H:i:m")
+			'created_at' => date("Y-m-d H:i:m")
 			]);
 		$cache = Flight::redis();
 		$result = $this->_category_list_cache($uid);

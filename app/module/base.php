@@ -15,7 +15,7 @@ class base
 	function success($msg, $code = 1,$data = []) {
 		Flight::json(['message' => $msg, 'status' => $code,'result' => $data]);
 	}
-	function error($msg,$code = -1) {
-		$this->success($msg, $code);
+	function error($msg,$code = -1,$data = []) {
+		$this->success($msg, $code,$data);
 	}
 }

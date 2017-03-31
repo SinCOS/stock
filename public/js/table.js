@@ -1,36 +1,6 @@
 $(function() {
     var stock_url = "";
-    var node_info = {
-        stock_url: "",
-        columns: [{
-            "data": null,
-            'orderable': false
-        }, {
-            "data": "cpy_id"
-        }, {
-            "data": "name"
-        }, {
-            "data": "zlbfb"
-        }, {
-            "data": "jlr"
-        }, {
-            "data": "calc"
-        }, {
-            "data": "one"
-        }, {
-            "data": "two"
-        }, {
-            "data": "three"
-        }, {
-            "data": "zf"
-        }, {
-            "data": "zs"
-        }, {
-            "data": null,
-            'orderable': false
-        }],
-        current: null
-    };
+   
 
     function jsk(aoData) {
         var u = {}
@@ -73,7 +43,7 @@ $(function() {
             "sLast": " 最后一页 "
         }
     };
-    node_info.current = $("#table_one").DataTable({
+    table_info.current = $("#table_one").DataTable({
         "aaSorting": [
             [8, "desc"]
         ],
@@ -81,11 +51,11 @@ $(function() {
 
         "processing": true, //载入数据的时候是否显示“载入中”
         "serverSide": true, //生成get数据
-        "columns": node_info.columns,
+        "columns": table_info.columns,
         "fnServerData": function(sSource, aoData, fnCallback) {
-
+            console.log(table_info.stock_url);
             $.ajax({
-                    url: '/api/stock/jlr',
+                    url: table_info.stock_url,
                     type: 'POST',
                     dataType: 'json',
                     data: jsk(aoData),
@@ -95,7 +65,7 @@ $(function() {
                 })
                 .fail(function() {
 
-                    console.log("network error");
+                   layer.msg('获取数据失败');
                 })
                 .always(function() {
                     console.log("complete");
@@ -104,20 +74,21 @@ $(function() {
 
         },
         "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-            var page = node_info.current.page();
-            var page_len = node_info.current.page.len();
+            var page = table_info.current.page();
+            var page_len = table_info.current.page.len();
             $('td:eq(0)', nRow).text(page * page_len + iDisplayIndex + 1);
+
             $('td:eq(11)', nRow).addClass('cpy_id').attr('data', aData['cpy_id']).on('click', function() {
                 var self = this;
                 var cpy_id = parseInt($(this).attr('data'));
                 var cpy_name = $(this).attr("cpy_name");
-        
+
                 var layer_index =  layer.open({
                         type: 1,
                         title: '自选股收藏夹',
                         content: $("#favor"),
                         area: ['345px','435px'],
-                        btn: ['新建','确认','返回'],
+                        btn: ['新建','确认'],
                         yes: function(index,layero){
                             layer.prompt({
                                 title: '新建收藏夹'
@@ -137,7 +108,6 @@ $(function() {
                                     }else if (resp.body.status == 200) {
                                          app.reflushFavor();
                                       
-                                         
                                     }
                                     
                                 },resp=>{
@@ -148,25 +118,15 @@ $(function() {
                             });
 
                         },
-                        btn0: function(){
-
-                            return false;
+                        btn2: function(){
+                            if (app.save_favor(cpy_id)){
+                                return true;
+                            }
+                            
                         }
                 });
                 return false;
-                layer.msg("是否把 ' " + cpy_name + " ' 添加到自选股", {
-                    btn: ['是', '否'],
-                    yes: function(layero) {
-                        Vue.http.post('/user/favor/' + cpy_id).then(function(resp){
-                            layer.msg(resp.body.message);
-                        },resp=>{
-                            layer.msg(resp.body.message);
-                        });;
-                        layer.close(layero);
-                    }
-                });
-
-            }).attr('cpy_name', aData['name']).text('关注');
+            }).attr('cpy_name', aData['name']).text(app.$data.favorClickIndex ? '取消关注':'关注');
             if (parseFloat(aData['zf']) > 0) {
                 $('td:eq(9)', nRow).addClass('error');
             }

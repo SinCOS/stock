@@ -78,7 +78,11 @@ $(function() {
         data: {
             loginIn: false,
             userInfo: [],
-            userFavor: []
+            userFavor: [],
+            favorIndex: 0,
+            favorClickIndex: false,
+            favorselectIndex:0,
+            echarts:null
         },
         updated: function() {
             layui.element().init();
@@ -89,7 +93,7 @@ $(function() {
             let self = this;
 
             if (!userID) {
-                return false;
+                return ;
             }
             this.$http.get('/user/info/' + userID).then(resp => {
                 self.userInfo = resp.body.result;
@@ -97,7 +101,6 @@ $(function() {
                     self.loginIn = true;
                     if (self.loginIn && localStorage['userFavor']) {
                         var _userFavor = JSON.parse(localStorage['userFavor']);
-                        console.log(_userFavor);
                         if (_userFavor) {
                             self.userFavor = _userFavor;
                         }else{
@@ -114,12 +117,20 @@ $(function() {
                 self.loginIn = false;
             });
             console.log(self.loginIn);
-
+            if (table_info && table_info.current){
+                      setInterval(function(){
+                table_info.current.ajax.reload();
+                 },60*1000);
+            }
+          
         },
         watch: {
             loginIn: function(newV, oldV) {
                 layui.element().init();
             }
+        },mounted: function(){
+              //layui.element().init();
+              
         },
         methods: {
             reflushFavor: function() {
@@ -132,6 +143,39 @@ $(function() {
                 }, fail => {
                     console.log(JSON.stringify(fail));
                 });
+            },
+            favor_select: function(id){
+            	this.favorIndex = id;
+            },
+            favor_click: function(id,public = 0){
+
+                if (id == 0 && public == 0) {
+                    table_info.stock_url = stock_url;
+                     this.favorClickIndex = false;
+                    table_info.current.ajax.reload();
+                }else if(public == 0){
+                    table_info.stock_url = stock_url + '/' +id +'/0';
+                     this.favorClickIndex = false;
+                }else{
+                    table_info.stock_url = stock_url + '/' + id;
+                    this.favorClickIndex = true;
+                    table_info.current.ajax.reload();
+                }
+                this.favorselectIndex = id;
+            },
+            save_favor: function(cpy_id){
+            	var self = this;
+            	console.log(self.favorIndex);
+            	if(self.favorIndex == 0 ){
+            		layer.msg('请选择分类');
+            		return false;
+            	}
+            	this.$http.post('/user/favor/'+cpy_id,{sg_id : self.favorIndex}).then(resp => {
+            		layer.msg(resp.body.message);
+            	}, fail => {
+
+            	})	
+            	return true;
             }
         }
     });
